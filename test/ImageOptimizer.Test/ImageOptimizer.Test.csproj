@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ImageOptimizer.Test</RootNamespace>
     <AssemblyName>ImageOptimizer.Test</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -55,12 +55,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\ImageOptimizer.csproj">
-      <Project>{ce4d2845-d1d2-4e6c-90c0-e7715fc0e1ab}</Project>
-      <Name>ImageOptimizer</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Artifacts\gif\animation-cartoon.gif" />
     <Content Include="Artifacts\gif\animation-road.gif" />
     <Content Include="Artifacts\gif\animation-screenshot.gif" />
@@ -81,6 +75,12 @@
     <Content Include="Artifacts\png\grunt.png" />
     <Content Include="Artifacts\png\logo.png" />
     <Content Include="Artifacts\png\screenshot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ImageOptimizer2022\ImageOptimizer2022.csproj">
+      <Project>{1b39376c-3d96-4996-904c-583d90817644}</Project>
+      <Name>ImageOptimizer2022</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

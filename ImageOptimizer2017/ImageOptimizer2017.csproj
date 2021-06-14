@@ -16,9 +16,9 @@
     <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MadsKristensen.ImageOptimizer</RootNamespace>
-    <AssemblyName>ImageOptimizer</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <RootNamespace>MadsKristensen.ImageOptimizer2017</RootNamespace>
+    <AssemblyName>ImageOptimizer2017</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <StartAction>Program</StartAction>
     <StartProgram>$(DevEnvDir)\devenv.exe</StartProgram>
     <StartArguments>/rootsuffix Exp</StartArguments>
@@ -52,39 +52,48 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cache.cs" />
-    <Compile Include="Commands\CopyBase64Command.cs" />
-    <Compile Include="Commands\OptimizeCommand.cs" />
-    <Compile Include="CompressionResult.cs" />
-    <Compile Include="Compressor.cs" />
-    <Compile Include="Helpers\Logger.cs" />
-    <Compile Include="Helpers\ProjectHelpers.cs" />
-    <Compile Include="ImageOptimizer.cs">
+    <Compile Include="..\SharedFiles\ImageOptimizer.cs">
+      <Link>ImageOptimizer.cs</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ImageOptimizer.vsct</DependentUpon>
+      <DependentUpon>..\SharedFiles\ImageOptimizer.vsct</DependentUpon>
     </Compile>
-    <Compile Include="ImageOptimizerPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="source.extension.cs">
       <DependentUpon>source.extension.vsixmanifest</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\icon.png">
+    <Content Include="..\SharedFiles\icon.png">
+      <Link>Resources\icon.png</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="..\LICENSE">
       <Link>Resources\LICENSE</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Resources\Tools\cjpeg.exe">
+    <Content Include="..\SharedFiles\Tools\cjpeg.exe">
+      <Link>Resources\Tools\cjpeg.exe</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Resources\Tools\libjpeg-62.dll">
+    <Content Include="..\SharedFiles\Tools\gifsicle.exe">
+      <Link>Resources\Tools\gifsicle.exe</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Resources\Tools\pingo.exe">
+    <Content Include="..\SharedFiles\Tools\guetzli_windows_x86-64.exe">
+      <Link>Resources\Tools\guetzli_windows_x86-64.exe</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\SharedFiles\Tools\jpegtran.exe">
+      <Link>Resources\Tools\jpegtran.exe</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\SharedFiles\Tools\libjpeg-62.dll">
+      <Link>Resources\Tools\libjpeg-62.dll</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\SharedFiles\Tools\pingo.exe">
+      <Link>Resources\Tools\pingo.exe</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Resource Include="source.extension.ico">
@@ -97,19 +106,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <VSCTCompile Include="ImageOptimizer.vsct">
+    <VSCTCompile Include="..\SharedFiles\ImageOptimizer.vsct">
+      <Link>ImageOptimizer.vsct</Link>
       <ResourceName>Menus.ctmenu</ResourceName>
-      <Generator>VsctGenerator</Generator>
-      <LastGenOutput>ImageOptimizer.cs</LastGenOutput>
+      <LastGenOutput>..\SharedFiles\ImageOptimizer.cs</LastGenOutput>
     </VSCTCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\Tools\gifsicle.exe">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="Resources\Tools\jpegtran.exe">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="source.extension.resx">
@@ -121,15 +122,11 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Madskristensen.VisualStudio.SDK">
-      <Version>14.0.0-beta4</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.VSSDK.BuildTools">
-      <Version>15.8.3247</Version>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
+    <PackageReference Include="Microsoft.VisualStudio.SDK">
+      <Version>16.9.31025.194</Version>
     </PackageReference>
   </ItemGroup>
+  <Import Project="..\ImageOptimizerCore\ImageOptimizerShared.projitems" Label="Shared" />
   <PropertyGroup>
     <UseCodebase>true</UseCodebase>
   </PropertyGroup>
